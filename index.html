@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XI TJKT 1 - SMK NU HASYIM ASYARI 2 KUDUS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>XI TJKT 1</h1>
+                <p>SMK NU HASYIM ASYARI 2 KUDUS</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Beranda</a></li>
+                    <li><a href="#structure">Struktur Kelas</a></li>
+                    <li><a href="#students">Profil Siswa</a></li>
+                    <li><a href="#schedule">Jadwal</a></li>
+                    <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="#chat">Chat Anonim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Selamat Datang di Website Kelas XI TJKT 1</h1>
+            <p>SMK NU HASYIM ASYARI 2 KUDUS</p>
+            <div class="birthday-highlight">
+                <h2><i class="fas fa-birthday-cake"></i> Ulang Tahun Hari Ini!</h2>
+                <div id="birthday-students" class="birthday-students">
+                    <!-- Birthday students will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Class Structure Section -->
+    <section id="structure" class="class-structure">
+        <div class="container">
+            <h2>Struktur Kelas</h2>
+            <div class="structure-container">
+                <div class="structure-item">
+                    <h3>Wali Kelas</h3>
+                    <p>Nama Wali Kelas</p>
+                </div>
+                <div class="structure-item">
+                    <h3>Ketua Kelas</h3>
+                    <p>Nama Ketua Kelas</p>
+                </div>
+                <div class="structure-item">
+                    <h3>Wakil Ketua</h3>
+                    <p>Nama Wakil Ketua</p>
+                </div>
+                <div class="structure-item">
+                    <h3>Sekretaris 1</h3>
+                    <p>Nama Sekretaris 1</p>
+                </div>
+                <div class="structure-item">
+                    <h3>Sekretaris 2</h3>
+                    <p>Nama Sekretaris 2</p>
+                </div>
+                <div class="structure-item">
+                    <h3>Bendahara 1</h3>
+                    <p>Nama Bendahara 1</p>
+                </div>
+                <div class="structure-item">
+                    <h3>Bendahara 2</h3>
+                    <p>Nama Bendahara 2</p>
+                </div>
+                <div class="structure-item">
+                    <h3>Seksi Keamanan</h3>
+                    <p>Nama Seksi Keamanan</p>
+                </div>
+                <div class="structure-item">
+                    <h3>Seksi Kebersihan</h3>
+                    <p>Nama Seksi Kebersihan</p>
+                </div>
+                <div class="structure-item">
+                    <h3>Seksi Kepramukaan</h3>
+                    <p>Nama Seksi Kepramukaan</p>
+                </div>
+                <div class="structure-item">
+                    <h3>Seksi Upacara</h3>
+                    <p>Nama Seksi Upacara</p>
+                </div>
+                <div class="structure-item">
+                    <h3>Seksi Keagamaan</h3>
+                    <p>Nama Seksi Keagamaan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Profiles Section -->
+    <section id="students" class="student-profiles">
+        <div class="container">
+            <h2>Profil Siswa</h2>
+            <div id="student-list" class="student-list">
+                <!-- Student profiles will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="schedule">
+        <div class="container">
+            <h2>Jadwal</h2>
+            <div class="schedule-tabs">
+                <button class="tab-button active" data-tab="picket">Jadwal Piket</button>
+                <button class="tab-button" data-tab="lesson">Jadwal Pelajaran</button>
+            </div>
+            <div class="tab-content">
+                <div id="picket-content" class="tab-pane active">
+                    <!-- Picket schedule will be displayed here -->
+                </div>
+                <div id="lesson-content" class="tab-pane">
+                    <!-- Lesson schedule will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Galeri Foto</h2>
+            <div id="photo-gallery" class="photo-gallery">
+                <!-- Gallery photos will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Anonymous Chat Section -->
+    <section id="chat" class="anonymous-chat">
+        <div class="container">
+            <h2>Chat Anonim</h2>
+            <div class="chat-container">
+                <div id="chat-messages" class="chat-messages">
+                    <!-- Chat messages will be displayed here -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="message-input" placeholder="Ketik pesan Anda...">
+                    <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 XI TJKT 1 - SMK NU HASYIM ASYARI 2 KUDUS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
