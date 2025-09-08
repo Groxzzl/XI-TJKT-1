@@ -1,7 +1,7 @@
-// Sample data for students
+// Sample data for students (remains the same)
 const students = [
-    { id: 1, name: "Ahmad Rifai", birthDate: "2007-05-15", photo: "https://via.placeholder.com/150" },
-    { id: 2, name: "Budi Santoso", birthDate: "2007-08-22", photo: "https://via.placeholder.com/150" },
+    { id: 1, name: "Ahmad Rifai", birthDate: "2007-09-8", photo: "https://via.placeholder.com/150" },
+    { id: 2, name: "Budi Santoso", birthDate: "2007-09-8", photo: "https://via.placeholder.com/150" },
     { id: 3, name: "Citra Dewi", birthDate: "2007-01-10", photo: "https://via.placeholder.com/150" },
     { id: 4, name: "Dian Permata", birthDate: "2007-12-03", photo: "https://via.placeholder.com/150" },
     { id: 5, name: "Eko Prabowo", birthDate: "2007-03-28", photo: "https://via.placeholder.com/150" },
@@ -25,23 +25,31 @@ const students = [
     { id: 23, name: "Yuni Pratiwi", birthDate: "2007-06-13", photo: "https://via.placeholder.com/150" }
 ];
 
-// Sample data for class structure
+// Sample data for class structure (Hierarchical)
 const classStructure = {
-    homeroomTeacher: "Dra. Siti Nurhaliza",
-    classPresident: "Ahmad Rifai",
-    vicePresident: "Budi Santoso",
-    secretary1: "Citra Dewi",
-    secretary2: "Dian Permata",
-    treasurer1: "Eko Prabowo",
-    treasurer2: "Fitriani Nur",
-    security: "Gita Putri",
-    cleanliness: "Hadi Suryanto",
-    scouting: "Indah Lestari",
-    ceremony: "Joko Widodo",
-    religion: "Kartika Sari"
+    topRoles: [
+        { position: "Wali Kelas", name: "Burhanudin S.Kom" }
+    ],
+    mainOfficers: [
+        { position: "Ketua Kelas", name: "Calista Lutfi Arindi" },
+        { position: "Wakil Ketua", name: "Budi Santoso" }
+    ],
+    coreTeam: [
+        { position: "Sekretaris 1", name: "Citra Dewi" },
+        { position: "Sekretaris 2", name: "Dian Permata" },
+        { position: "Bendahara 1", name: "Eko Prabowo" },
+        { position: "Bendahara 2", name: "Fitriani Nur" }
+    ],
+    sections: [
+        { position: "Seksi Keamanan", name: "Gita Putri" },
+        { position: "Seksi Kebersihan", name: "Hadi Suryanto" },
+        { position: "Seksi Kepramukaan", name: "Indah Lestari" },
+        { position: "Seksi Upacara", name: "Joko Widodo" },
+        { position: "Seksi Keagamaan", name: "Kartika Sari" }
+    ]
 };
 
-// Sample data for schedules
+// Sample data for schedules (remains the same)
 const picketSchedule = {
     "Senin": ["Ahmad Rifai", "Budi Santoso", "Citra Dewi"],
     "Selasa": ["Dian Permata", "Eko Prabowo", "Fitriani Nur"],
@@ -79,10 +87,10 @@ const lessonSchedule = {
         { time: "11.00 - 11.40", subject: "Istirahat" },
         { time: "11.40 - 13.20", subject: "Olahraga" }
     ],
-    "Jumat": [] // Empty for Friday (day off)
+    "Jumat": []
 };
 
-// Sample data for gallery
+// Sample data for gallery (remains the same)
 const galleryPhotos = [
     { id: 1, url: "https://via.placeholder.com/300x200?text=Kegiatan+1", caption: "Kegiatan 1" },
     { id: 2, url: "https://via.placeholder.com/300x200?text=Kegiatan+2", caption: "Kegiatan 2" },
@@ -92,333 +100,11 @@ const galleryPhotos = [
     { id: 6, url: "https://via.placeholder.com/300x200?text=Kegiatan+6", caption: "Kegiatan 6" }
 ];
 
-// DOM Elements
-const studentList = document.getElementById('student-list');
-const birthdayStudents = document.getElementById('birthday-students');
-const structureContainer = document.querySelector('.structure-container');
-const picketContent = document.getElementById('picket-content');
-const lessonContent = document.getElementById('lesson-content');
-const photoGallery = document.getElementById('photo-gallery');
-const chatMessages = document.getElementById('chat-messages');
-const messageInput = document.getElementById('message-input');
-const sendButton = document.getElementById('send-button');
-
-// Initialize the website
-document.addEventListener('DOMContentLoaded', function() {
-    // Render student profiles
-    renderStudentProfiles();
-    
-    // Render birthday students
-    renderBirthdayStudents();
-    
-    // Render class structure
-    renderClassStructure();
-    
-    // Render schedules
-    renderPicketSchedule();
-    renderLessonSchedule();
-    
-    // Render gallery
-    renderGallery();
-    
-    // Setup chat functionality
-    setupChat();
-    
-    // Setup navigation
-    setupNavigation();
-    
-    // Setup schedule tabs
-    setupScheduleTabs();
-});
-
-// Render student profiles
-function renderStudentProfiles() {
-    studentList.innerHTML = '';
-    
-    students.forEach(student => {
-        const isBirthdayToday = checkBirthdayToday(student.birthDate);
-        const studentCard = document.createElement('div');
-        studentCard.className = `student-card ${isBirthdayToday ? 'birthday-today' : ''}`;
-        studentCard.innerHTML = `
-            <img src="${student.photo}" alt="${student.name}">
-            <div class="student-info">
-                <h3>${student.name}</h3>
-                <p>${formatDate(student.birthDate)}</p>
-            </div>
-        `;
-        studentList.appendChild(studentCard);
-    });
-}
-
-// Render birthday students
-function renderBirthdayStudents() {
-    birthdayStudents.innerHTML = '';
-    
-    const todayBirthdayStudents = students.filter(student => 
-        checkBirthdayToday(student.birthDate)
-    );
-    
-    if (todayBirthdayStudents.length === 0) {
-        birthdayStudents.innerHTML = '<p>Tidak ada ulang tahun hari ini</p>';
-        return;
-    }
-    
-    todayBirthdayStudents.forEach(student => {
-        const birthdayCard = document.createElement('div');
-        birthdayCard.className = 'birthday-card birthday-today';
-        birthdayCard.innerHTML = `
-            <img src="${student.photo}" alt="${student.name}">
-            <h3>${student.name}</h3>
-        `;
-        birthdayStudents.appendChild(birthdayCard);
-    });
-}
-
-// Render class structure
-function renderClassStructure() {
-    structureContainer.innerHTML = `
-        <div class="structure-item">
-            <h3>Wali Kelas</h3>
-            <p>${classStructure.homeroomTeacher}</p>
-        </div>
-        <div class="structure-item">
-            <h3>Ketua Kelas</h3>
-            <p>${classStructure.classPresident}</p>
-        </div>
-        <div class="structure-item">
-            <h3>Wakil Ketua</h3>
-            <p>${classStructure.vicePresident}</p>
-        </div>
-        <div class="structure-item">
-            <h3>Sekretaris 1</h3>
-            <p>${classStructure.secretary1}</p>
-        </div>
-        <div class="structure-item">
-            <h3>Sekretaris 2</h3>
-            <p>${classStructure.secretary2}</p>
-        </div>
-        <div class="structure-item">
-            <h3>Bendahara 1</h3>
-            <p>${classStructure.treasurer1}</p>
-        </div>
-        <div class="structure-item">
-            <h3>Bendahara 2</h3>
-            <p>${classStructure.treasurer2}</p>
-        </div>
-        <div class="structure-item">
-            <h3>Seksi Keamanan</h3>
-            <p>${classStructure.security}</p>
-        </div>
-        <div class="structure-item">
-            <h3>Seksi Kebersihan</h3>
-            <p>${classStructure.cleanliness}</p>
-        </div>
-        <div class="structure-item">
-            <h3>Seksi Kepramukaan</h3>
-            <p>${classStructure.scouting}</p>
-        </div>
-        <div class="structure-item">
-            <h3>Seksi Upacara</h3>
-            <p>${classStructure.ceremony}</p>
-        </div>
-        <div class="structure-item">
-            <h3>Seksi Keagamaan</h3>
-            <p>${classStructure.religion}</p>
-        </div>
-    `;
-}
-
-// Render picket schedule
-function renderPicketSchedule() {
-    picketContent.innerHTML = '';
-    
-    for (const [day, students] of Object.entries(picketSchedule)) {
-        const daySchedule = document.createElement('div');
-        daySchedule.className = 'day-schedule';
-        daySchedule.innerHTML = `
-            <h3>${day}</h3>
-            <ul>
-                ${students.map(student => `<li>${student}</li>`).join('')}
-            </ul>
-        `;
-        picketContent.appendChild(daySchedule);
-    }
-}
-
-// Render lesson schedule
-function renderLessonSchedule() {
-    lessonContent.innerHTML = '';
-    
-    for (const [day, subjects] of Object.entries(lessonSchedule)) {
-        const daySchedule = document.createElement('div');
-        daySchedule.className = 'day-schedule';
-        
-        if (subjects.length === 0) {
-            daySchedule.innerHTML = `
-                <h3>${day}</h3>
-                <p>Hari libur</p>
-            `;
-        } else {
-            daySchedule.innerHTML = `
-                <h3>${day}</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Waktu</th>
-                            <th>Mata Pelajaran</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${subjects.map(subject => `
-                            <tr>
-                                <td>${subject.time}</td>
-                                <td>${subject.subject}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            `;
-        }
-        
-        lessonContent.appendChild(daySchedule);
-    }
-}
-
-// Render gallery
-function renderGallery() {
-    photoGallery.innerHTML = '';
-    
-    galleryPhotos.forEach(photo => {
-        const galleryItem = document.createElement('div');
-        galleryItem.className = 'gallery-item';
-        galleryItem.innerHTML = `
-            <img src="${photo.url}" alt="${photo.caption}">
-        `;
-        photoGallery.appendChild(galleryItem);
-    });
-}
-
-// Setup chat functionality
-function setupChat() {
-    // Load chat messages from localStorage
-    loadChatMessages();
-    
-    // Send message when button is clicked
-    sendButton.addEventListener('click', sendMessage);
-    
-    // Send message when Enter key is pressed
-    messageInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    });
-}
-
-// Send message
-function sendMessage() {
-    const message = messageInput.value.trim();
-    
-    if (message) {
-        const timestamp = new Date();
-        const messageData = {
-            content: message,
-            timestamp: timestamp.getTime(),
-            own: true
-        };
-        
-        // Save message to localStorage
-        saveChatMessage(messageData);
-        
-        // Clear input
-        messageInput.value = '';
-        
-        // Refresh chat display
-        loadChatMessages();
-        
-        // Scroll to bottom
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-}
-
-// Save chat message to localStorage
-function saveChatMessage(message) {
-    let messages = JSON.parse(localStorage.getItem('chatMessages')) || [];
-    messages.push(message);
-    localStorage.setItem('chatMessages', JSON.stringify(messages));
-}
-
-// Load chat messages from localStorage
-function loadChatMessages() {
-    const messages = JSON.parse(localStorage.getItem('chatMessages')) || [];
-    chatMessages.innerHTML = '';
-    
-    messages.forEach(message => {
-        const messageElement = document.createElement('div');
-        messageElement.className = `message ${message.own ? 'own' : ''}`;
-        messageElement.innerHTML = `
-            <div class="message-content">${message.content}</div>
-            <div class="message-time">${formatTime(new Date(message.timestamp))}</div>
-        `;
-        chatMessages.appendChild(messageElement);
-    });
-    
-    // Scroll to bottom
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-}
-
-// Setup navigation
-function setupNavigation() {
-    const navLinks = document.querySelectorAll('nav a');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Remove active class from all links
-            navLinks.forEach(link => link.classList.remove('active'));
-            
-            // Add active class to clicked link
-            this.classList.add('active');
-            
-            // Scroll to section
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-}
-
-// Setup schedule tabs
-function setupScheduleTabs() {
-    const tabButtons = document.querySelectorAll('.tab-button');
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const tabName = this.getAttribute('data-tab');
-            
-            // Remove active class from all buttons and panes
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Show corresponding pane
-            document.getElementById(`${tabName}-content`).classList.add('active');
-        });
-    });
-}
-
 // Helper functions
 function checkBirthdayToday(birthDate) {
     const today = new Date();
     const birth = new Date(birthDate);
-    
-    return today.getDate() === birth.getDate() && 
-           today.getMonth() === birth.getMonth();
+    return today.getDate() === birth.getDate() && today.getMonth() === birth.getMonth();
 }
 
 function formatDate(dateString) {
@@ -426,14 +112,180 @@ function formatDate(dateString) {
     return new Date(dateString).toLocaleDateString('id-ID', options);
 }
 
-function formatTime(date) {
-    const hours = date.getHours().toString().padStart(2, '0');
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-    return `${hours}:${minutes}`;
+// --- RENDER FUNCTIONS ---
+
+function renderStudentProfiles() {
+    const studentList = document.getElementById('student-list');
+    studentList.innerHTML = '';
+    students.forEach(student => {
+        const isBirthday = checkBirthdayToday(student.birthDate);
+        const col = document.createElement('div');
+        col.className = 'col-lg-3 col-md-4 col-sm-6';
+        col.innerHTML = `
+            <div class="card h-100 shadow-sm student-card ${isBirthday ? 'birthday-today' : ''}">
+                <img src="${student.photo}" class="card-img-top" alt="${student.name}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">${student.name}</h5>
+                    <p class="card-text small text-muted">${formatDate(student.birthDate)}</p>
+                </div>
+            </div>
+        `;
+        studentList.appendChild(col);
+    });
 }
 
-// Update birthday display every minute
-setInterval(() => {
-    renderBirthdayStudents();
+function renderBirthdayStudents() {
+    const birthdayContainer = document.getElementById('birthday-students');
+    birthdayContainer.innerHTML = '';
+    const birthdayStudents = students.filter(s => checkBirthdayToday(s.birthDate));
+
+    if (birthdayStudents.length === 0) {
+        birthdayContainer.innerHTML = '<p class="text-white-50">Tidak ada yang berulang tahun hari ini.</p>';
+        return;
+    }
+
+    birthdayStudents.forEach(student => {
+        const studentDiv = document.createElement('div');
+        studentDiv.className = 'text-center birthday-card';
+        studentDiv.innerHTML = `
+            <img src="${student.photo}" alt="${student.name}" class="rounded-circle mb-2" width="80" height="80">
+            <h6 class="mb-0 text-white">${student.name}</h6>
+        `;
+        birthdayContainer.appendChild(studentDiv);
+    });
+}
+
+function renderClassStructure() {
+    const container = document.getElementById('structure-container');
+    container.innerHTML = ''; // Clear previous content
+
+    // Helper to create a card column
+    const createCardColumn = (position, name, colClasses, cardClasses = '') => {
+        return `
+            <div class="${colClasses}">
+                <div class="card h-100 shadow-sm text-center ${cardClasses}">
+                    <div class="card-body d-flex flex-column justify-content-center p-3">
+                        <h5 class="card-title ${cardClasses.includes('bg-primary') ? 'text-white' : 'text-primary'} mb-1">${position}</h5>
+                        <p class="card-text mt-1 mb-0">${name}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    };
+
+    // Top Role (Wali Kelas)
+    let topRoleHtml = classStructure.topRoles.map(role => 
+        createCardColumn(role.position, role.name, 'col-md-8 col-lg-6', 'bg-primary text-white')
+    ).join('');
+    container.innerHTML += `<div class="row justify-content-center mb-4">${topRoleHtml}</div>`;
+
+    // Main Officers (Ketua & Wakil)
+    let mainOfficersHtml = classStructure.mainOfficers.map(role => 
+        createCardColumn(role.position, role.name, 'col-md-5')
+    ).join('');
+    container.innerHTML += `<div class="row justify-content-center mb-5 g-4">${mainOfficersHtml}</div>`;
+
+    // Core Team (Secretaris & Bendahara)
+    container.innerHTML += '<hr class="my-4">';
+    let coreTeamHtml = classStructure.coreTeam.map(role => 
+        createCardColumn(role.position, role.name, 'col-md-6 col-lg-3')
+    ).join('');
+    container.innerHTML += `<div class="row justify-content-center g-4 mb-5">${coreTeamHtml}</div>`;
+
+    // Sections
+    container.innerHTML += '<h4 class="text-center text-muted mb-4">Seksi-Seksi</h4>';
+    let sectionsHtml = classStructure.sections.map(role => 
+        createCardColumn(role.position, role.name, 'col-lg col-md-4 col-sm-6', 'bg-light')
+    ).join('');
+    container.innerHTML += `<div class="row g-3">${sectionsHtml}</div>`;
+}
+
+function renderPicketSchedule() {
+    const container = document.getElementById('picket-content');
+    container.innerHTML = '';
+    const row = document.createElement('div');
+    row.className = 'row g-3';
+    
+    for (const [day, studentList] of Object.entries(picketSchedule)) {
+        const col = document.createElement('div');
+        col.className = 'col-md-6 col-lg-4';
+        let listItems = studentList.map(name => `<li>${name}</li>`).join('');
+        
+        col.innerHTML = `
+            <div class="day-schedule h-100">
+                <h5 class="text-primary">${day}</h5>
+                <ul class="list-unstyled mb-0">${listItems}</ul>
+            </div>
+        `;
+        row.appendChild(col);
+    }
+    container.appendChild(row);
+}
+
+function renderLessonSchedule() {
+    const container = document.getElementById('lesson-content');
+    container.innerHTML = '';
+    const row = document.createElement('div');
+    row.className = 'row g-3';
+
+    for (const [day, lessons] of Object.entries(lessonSchedule)) {
+        const col = document.createElement('div');
+        col.className = 'col-12';
+        
+        let tableRows = lessons.map(lesson => `
+            <tr>
+                <td class="text-muted">${lesson.time}</td>
+                <td>${lesson.subject}</td>
+            </tr>
+        `).join('');
+
+        if (lessons.length === 0) {
+            tableRows = '<tr><td colspan="2" class="text-center text-muted">Hari libur</td></tr>';
+        }
+
+        col.innerHTML = `
+            <div class="day-schedule">
+                <h5 class="text-primary">${day}</h5>
+                <div class="table-responsive">
+                    <table class="table table-striped mb-0">
+                        <tbody>${tableRows}</tbody>
+                    </table>
+                </div>
+            </div>
+        `;
+        row.appendChild(col);
+    }
+    container.appendChild(row);
+}
+
+function renderGallery() {
+    const container = document.getElementById('photo-gallery');
+    container.innerHTML = '';
+    galleryPhotos.forEach(photo => {
+        const col = document.createElement('div');
+        col.className = 'col-lg-4 col-md-6';
+        col.innerHTML = `
+            <div class="card gallery-item shadow-sm">
+                <img src="${photo.url}" class="img-fluid" alt="${photo.caption}">
+            </div>
+        `;
+        container.appendChild(col);
+    });
+}
+
+// --- INITIALIZATION ---
+
+document.addEventListener('DOMContentLoaded', function() {
     renderStudentProfiles();
-}, 60000);
+    renderBirthdayStudents();
+    renderClassStructure();
+    renderPicketSchedule();
+    renderLessonSchedule();
+    renderGallery();
+
+    // Update birthday display every minute
+    setInterval(() => {
+        renderBirthdayStudents();
+        renderStudentProfiles();
+    }, 60000);
+});

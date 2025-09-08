@@ -1,37 +1,38 @@
-# Website Kelas XI TJKT 1
-SMK NU HASYIM ASYARI 2 KUDUS
+# 👋 Selamat Datang di Website Kelas XI TJKT 1!
 
-## Deskripsi
-Website ini dibuat untuk kelas XI TJKT 1 di SMK NU HASYIM ASYARI 2 KUDUS. Website ini memiliki fitur-fitur modern dan responsif yang dapat diakses melalui berbagai perangkat.
+Ini adalah markas digital resmi kami, kelas XI TJKT 1 dari SMK NU HASYIM ASYARI 2 KUDUS. Website ini kami bangun untuk menyimpan semua hal penting dan seru tentang kelas kami, mulai dari jadwal hingga kenangan manis.
 
-## Fitur-Fitur
-1. **Struktur Kelas** - Menampilkan hierarki kelas mulai dari wali kelas hingga seksi-seksi
-2. **Profil Siswa** - Menampilkan daftar 23 murid dengan foto dan tanggal lahir
-3. **Fitur Ulang Tahun** - Menampilkan murid yang berulang tahun hari ini dengan border merah
-4. **Galeri Foto** - Menampilkan foto-foto kenangan kelas
-5. **Jadwal** - Dua menu terpisah untuk jadwal piket dan jadwal pelajaran
-6. **Chat Anonim** - Fitur chat tanpa login menggunakan localStorage
-7. **Desain Responsif** - Beradaptasi dengan berbagai ukuran layar
+Dibuat dengan ❤️, Bootstrap, dan sedikit keajaiban JavaScript.
 
-## Teknologi yang Digunakan
-- HTML5
-- CSS3 (dengan Flexbox dan Grid)
-- JavaScript (Vanilla)
-- Font Awesome (untuk ikon)
+## ✨ Fitur Keren yang Ada di Sini
 
-## Cara Menggunakan
-1. Buka file `index.html` di browser Anda
-2. Gunakan menu navigasi untuk berpindah antar halaman
-3. Untuk fitur chat, cukup ketik pesan dan klik tombol kirim
+*   **Struktur Kelas 🏛️:** Penasaran siapa saja yang jadi "petinggi" di kelas? Di sini kamu bisa lihat daftar pengurus kelas, lengkap dengan jabatan mereka, disajikan dalam tata letak yang jelas dan hierarkis.
+*   **Profil Siswa 🧑‍🤝‍🧑:** Kenali lebih dekat 23 anggota kelas kami. Setiap siswa punya kartu profil lengkap dengan foto dan tanggal lahir.
+*   **Pemberitahuan Ulang Tahun 🎂:** Gak akan ada lagi yang terlewat! Siswa yang berulang tahun hari ini akan dapat sorotan khusus di halaman utama dan di profil mereka.
+*   **Jadwal Lengkap 🗓️:** Bingung hari ini piket atau pelajaran apa? Cek aja di sini! Ada dua tab terpisah untuk jadwal piket dan jadwal pelajaran biar gak salah lihat.
+*   **Galeri Kenangan 📸:** Tempat kami menyimpan momen-momen seru dan tak terlupakan selama di kelas.
+*   **Desain Responsif & Modern 📱:** Dibangun di atas Bootstrap 5, website ini dijamin nyaman dibuka di perangkat apa pun, mulai dari HP, tablet, hingga laptop.
 
-## Catatan
-- Semua foto disimpan di GitHub melalui placeholder URL
-- Data disimpan secara lokal di browser pengguna (localStorage)
-- Website ini sepenuhnya responsif dan dapat diakses di perangkat mobile
+## 💻 Teknologi di Balik Layar
 
-## Pengembangan
-Website ini dapat dikembangkan lebih lanjut dengan menambahkan:
-- Integrasi database untuk menyimpan data secara permanen
-- Sistem login untuk siswa dan guru
-- Fitur pengumuman kelas
-- Kalender akademik
+*   **HTML5:** Sebagai fondasi utama.
+*   **Bootstrap 5:** Untuk tampilan yang modern, responsif, dan konsisten.
+*   **CSS3 Kustom:** Sedikit sentuhan personal untuk mempercantik tampilan Bootstrap.
+*   **JavaScript (Vanilla):** Menghidupkan semua fitur dinamis di website ini tanpa _framework_ berat.
+*   **Font Awesome:** Untuk ikon-ikon cantik yang informatif.
+*   **Google Fonts:** Memberikan sentuhan tipografi yang lebih elegan.
+
+## 🚀 Cara Menjalankan
+
+Gampang banget! Cukup buka file `index.html` di browser favoritmu, dan semuanya akan langsung berjalan. Tidak perlu instalasi apa pun.
+
+## 💡 Ide Pengembangan Selanjutnya
+
+Website ini masih bisa lebih keren lagi! Beberapa ide untuk masa depan:
+*   Integrasi dengan Google Calendar untuk jadwal yang lebih dinamis.
+*   Halaman khusus untuk setiap siswa yang bisa mereka kustomisasi.
+*   Sistem pengumuman atau mading online.
+
+---
+
+Terima kasih sudah mampir!
