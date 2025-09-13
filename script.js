@@ -1,4 +1,4 @@
-// Sample data for students (remains the same)
+// Contoh data untuk siswa (tetap sama)
 const students = [
   {
     id: 1,
@@ -140,7 +140,7 @@ const students = [
   },
 ];
 
-// Sample data for class structure (Hierarchical)
+// Contoh data untuk struktur kelas (Hierarkis)
 const classStructure = {
   topRoles: [{ position: "Wali Kelas", name: "Burhanudin S.Kom" }],
   mainOfficers: [
@@ -162,7 +162,7 @@ const classStructure = {
   ],
 };
 
-// Sample data for schedules (remains the same)
+// Contoh data untuk jadwal (tetap sama)
 const picketSchedule = {
   Senin: ["Ahmad Rifai", "Budi Santoso", "Citra Dewi"],
   Selasa: ["Dian Permata", "Eko Prabowo", "Fitriani Nur"],
@@ -217,16 +217,16 @@ const lessonSchedule = {
   ],
 };
 
-// Sample data for gallery (remains the same)
+// Contoh data untuk galeri (tetap sama)
 const galleryPhotos = [
   {
     id: 1,
-    url: "https://via.placeholder.com/300x200?text=Kegiatan+1",
+    url: "https://i.pinimg.com/1200x/bd/56/43/bd5643293c6ae35b8b68d1abe48b8e44.jpg",
     caption: "Kegiatan 1",
   },
   {
     id: 2,
-    url: "https://via.placeholder.com/300x200?text=Kegiatan+2",
+    url: "https://i.pinimg.com/736x/40/76/37/40763772b6d0f93bb0dce6d546d8c458.jpg",
     caption: "Kegiatan 2",
   },
   {
@@ -251,7 +251,7 @@ const galleryPhotos = [
   },
 ];
 
-// Helper functions
+// Fungsi bantuan
 function checkBirthdayToday(birthDate) {
   const today = new Date();
   const birth = new Date(birthDate);
@@ -265,7 +265,7 @@ function formatDate(dateString) {
   return new Date(dateString).toLocaleDateString("id-ID", options);
 }
 
-// --- RENDER FUNCTIONS ---
+// --- FUNGSI RENDER ---
 
 function renderStudentProfiles() {
   const studentList = document.getElementById("student-list");
@@ -313,9 +313,9 @@ function renderBirthdayStudents() {
 
 function renderClassStructure() {
   const container = document.getElementById("structure-container");
-  container.innerHTML = ""; // Clear previous content
+  container.innerHTML = ""; // Hapus konten sebelumnya
 
-  // Helper to create a card column
+  // Bantuan untuk membuat kolom kartu
   const createCardColumn = (position, name, colClasses, cardClasses = "") => {
     return `
             <div class="${colClasses}">

@@ -1,14 +1,14 @@
-/* Google Fonts */
+/* Font Google */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
 
 :root {
-    --bs-primary-rgb: 0, 123, 255; /* Custom Bootstrap primary color */
+    --bs-primary-rgb: 0, 123, 255; /* Warna utama Bootstrap kustom */
     --bs-body-font-family: 'Roboto', sans-serif;
     --bs-body-line-height: 1.7;
 }
 
 body {
-    padding-top: 70px; /* Offset for fixed navbar */
+    padding-top: 70px; /* Ofset untuk navbar tetap */
 }
 
 h1, h2, h3, h4, h5, h6, .navbar-brand, .nav-link {
@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand, .nav-link {
     font-weight: 700;
 }
 
-/* Hero Section */
+/* Bagian Hero */
 .hero {
     min-height: 80vh;
     background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(111, 66, 193, 0.8)), url('https://source.unsplash.com/1600x900/?school,technology') no-repeat center center;
@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand, .nav-link {
     transform: translateY(-5px);
 }
 
-/* Section Title */
+/* Judul Bagian */
 section h2 {
     font-weight: 700;
     position: relative;
@@ -59,7 +59,7 @@ section h2::after {
     border-radius: 2px;
 }
 
-/* Card Styles */
+/* Gaya Kartu */
 .card {
     border: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -80,7 +80,7 @@ section h2::after {
     object-fit: cover;
 }
 
-/* Schedule Tabs */
+/* Tab Jadwal */
 .nav-pills .nav-link {
     font-weight: 600;
 }
@@ -92,7 +92,7 @@ section h2::after {
     margin-bottom: 1.5rem;
 }
 
-/* Gallery */
+/* Galeri */
 .gallery-item {
     overflow: hidden;
     border-radius: 0.5rem;
