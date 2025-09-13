@@ -1,39 +1,39 @@
 # 👋 Selamat Datang di Website Kelas XI TJKT 1!
 
-Ini adalah markas digital resmi kami, kelas XI TJKT 1 dari SMK NU HASYIM ASYARI 2 KUDUS. Website ini kami bangun untuk menyimpan semua hal penting dan seru tentang kelas kami, mulai dari jadwal hingga kenangan manis.
+Ini adalah website resmi kelas XI TJKT 1 dari SMK NU HASYIM ASYARI 2 KUDUS. Website ini dibuat sebagai wadah digital untuk menyimpan informasi penting dan kenangan selama masa belajar di kelas ini, mulai dari struktur organisasi kelas, profil siswa, jadwal kegiatan, hingga galeri foto.
 
-Dibuat dengan Bootstrap, dan sedikit JavaScript.
+Website ini dibangun dengan menggunakan Bootstrap dan JavaScript untuk memberikan pengalaman pengguna yang baik dan responsif di berbagai perangkat.
 
-## ✨ Fitur Keren yang Ada di Sini
+## ✨ Fitur Utama
 
-- **Struktur Kelas 🏛️:** Penasaran siapa saja yang jadi "petinggi" di kelas? Di sini kamu bisa lihat daftar pengurus kelas, lengkap dengan jabatan mereka, disajikan dalam tata letak yang jelas dan hierarkis.
-- **Profil Siswa 🧑‍🤝‍🧑:** Kenali lebih dekat 23 anggota kelas kami. Setiap siswa punya kartu profil lengkap dengan foto dan tanggal lahir.
-- **Pemberitahuan Ulang Tahun 🎂:** Gak akan ada lagi yang terlewat! Siswa yang berulang tahun hari ini akan dapat sorotan khusus di halaman utama dan di profil mereka.
-- **Jadwal Lengkap 🗓️:** Bingung hari ini piket atau pelajaran apa? Cek aja di sini! Ada dua tab terpisah untuk jadwal piket dan jadwal pelajaran biar gak salah lihat.
-- **Galeri Kenangan 📸:** Tempat kami menyimpan momen-momen seru dan tak terlupakan selama di kelas.
-- **Desain Responsif & Modern 📱:** Dibangun di atas Bootstrap 5, website ini dijamin nyaman dibuka di perangkat apa pun, mulai dari HP, tablet, hingga laptop.
+- **Struktur Kelas 🏛️:** Menampilkan daftar pengurus kelas lengkap dengan jabatannya, disajikan dalam tata letak yang jelas dan hierarkis.
+- **Profil Siswa 🧑‍🤝‍🧑:** Menampilkan profil dari seluruh anggota kelas, lengkap dengan foto dan tanggal lahir.
+- **Notifikasi Ulang Tahun 🎂:** Menampilkan siswa yang berulang tahun hari ini dengan sorotan khusus di halaman utama dan di profil mereka.
+- **Jadwal Lengkap 🗓️:** Menyediakan informasi jadwal piket dan jadwal pelajaran dalam dua tab terpisah untuk memudahkan pengguna.
+- **Galeri Kenangan 📸:** Wadah untuk menyimpan momen-momen berharga selama di kelas.
+- **Desain Responsif & Modern 📱:** Dibangun di atas Bootstrap 5, website ini dapat diakses dengan nyaman dari berbagai perangkat seperti smartphone, tablet, dan komputer.
 
-## 💻 Teknologi di Balik Layar
+## 💻 Teknologi yang Digunakan
 
-- **HTML5:** Sebagai fondasi utama.
-- **Bootstrap 5:** Untuk tampilan yang modern, responsif, dan konsisten.
-- **CSS3 Kustom:** Sedikit sentuhan personal untuk mempercantik tampilan Bootstrap.
-- **JavaScript (Vanilla):** Menghidupkan semua fitur dinamis di website ini tanpa _framework_ berat.
-- **Font Awesome:** Untuk ikon-ikon cantik yang informatif.
-- **Google Fonts:** Memberikan sentuhan tipografi yang lebih elegan.
+- **HTML5:** Sebagai struktur dasar website.
+- **Bootstrap 5:** Untuk tampilan yang modern, responsif, dan konsisten di berbagai perangkat.
+- **CSS3 Kustom:** Untuk sentuhan personalisasi pada tampilan website.
+- **JavaScript (Vanilla):** Untuk mengimplementasikan fitur-fitur dinamis tanpa menggunakan framework berat.
+- **Font Awesome:** Untuk ikon-ikon yang informatif dan menarik.
+- **Google Fonts:** Untuk tipografi yang elegan dan mudah dibaca.
 
 ## 🚀 Cara Menjalankan
 
-Gampang banget! Cukup buka file `index.html` di browser favoritmu, dan semuanya akan langsung berjalan. Tidak perlu instalasi apa pun.
+Cara menjalankan website ini sangat mudah. Cukup buka file `index.html` di browser favorit Anda, dan website akan langsung dapat digunakan. Tidak ada proses instalasi tambahan yang diperlukan.
 
-## 💡 Ide Pengembangan Selanjutnya
+## 💡 Ide Pengembangan di Masa Depan
 
-Website ini masih bisa lebih keren lagi! Beberapa ide untuk masa depan:
+Website ini masih memiliki potensi untuk dikembangkan lebih lanjut. Beberapa ide untuk pengembangan selanjutnya:
 
-- Integrasi dengan Google Calendar untuk jadwal yang lebih dinamis.
-- Halaman khusus untuk setiap siswa yang bisa mereka kustomisasi.
-- Sistem pengumuman atau mading online.
+- Integrasi dengan Google Calendar untuk sinkronisasi jadwal yang lebih dinamis.
+- Pembuatan halaman profil pribadi untuk setiap siswa yang dapat mereka kustomisasi sendiri.
+- Penambahan sistem pengumuman atau mading online untuk komunikasi internal kelas.
 
 ---
 
-Terima kasih sudah mampir!
+Terima kasih telah mengunjungi website kami!
