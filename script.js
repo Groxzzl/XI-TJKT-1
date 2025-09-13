@@ -2,31 +2,31 @@
 const students = [
   {
     id: 1,
-    name: "Ahmad Rifai",
+    name: "Reza",
     birthDate: "2007-09-13",
     photo: "https://groxzzl.github.io/pagesft/arya/arya3.webp",
   },
   {
     id: 2,
-    name: "Budi Santoso",
+    name: "Danang",
     birthDate: "2007-09-13",
     photo: "https://groxzzl.github.io/pagesft/lukman/lukman1.webp",
   },
   {
     id: 3,
-    name: "Citra Dewi",
+    name: "Rio",
     birthDate: "2007-01-10",
     photo: "https://via.placeholder.com/150",
   },
   {
     id: 4,
-    name: "Dian Permata",
+    name: "Arfian",
     birthDate: "2007-12-03",
     photo: "https://via.placeholder.com/150",
   },
   {
     id: 5,
-    name: "Eko Prabowo",
+    name: "Azzamul Mukhtar",
     birthDate: "2007-03-28",
     photo: "https://via.placeholder.com/150",
   },
@@ -148,7 +148,7 @@ const classStructure = {
     { position: "Wakil Ketua", name: "Reza" },
   ],
   coreTeam: [
-    { position: "Sekretaris 1", name: "Citra Dewi" },
+    { position: "Sekretaris 1", name: "Rizki Febriana Aulia" },
     { position: "Sekretaris 2", name: "Dian Permata" },
     { position: "Bendahara 1", name: "Eko Prabowo" },
     { position: "Bendahara 2", name: "Fitriani Nur" },
