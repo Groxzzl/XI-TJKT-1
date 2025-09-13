@@ -155,30 +155,32 @@ const classStructure = {
   topRoles: [{ position: "Wali Kelas", name: "Burhanudin S.Kom" }],
   mainOfficers: [
     { position: "Ketua Kelas", name: "Calista Lutfi Arindi" },
-    { position: "Wakil Ketua", name: "Reza" },
+    { position: "Wakil Ketua", name: "Maulana Riza" },
   ],
   coreTeam: [
-    { position: "Sekretaris 1", name: "Rizki Febriana Aulia" },
-    { position: "Sekretaris 2", name: "Dian Permata" },
-    { position: "Bendahara 1", name: "Eko Prabowo" },
-    { position: "Bendahara 2", name: "Fitriani Nur" },
+    { position: "Sekretaris 1", name: "Risma Ailla Azulla" },
+    { position: "Sekretaris 2", name: "Shinta Zahra Aulia" },
+    { position: "Bendahara 1", name: "Rizqi Febriana Aulia" },
+    { position: "Bendahara 2", name: "Lailatul Magfiroh" },
   ],
   sections: [
-    { position: "Seksi Keamanan", name: "Gita Putri" },
-    { position: "Seksi Kebersihan", name: "Hadi Suryanto" },
-    { position: "Seksi Kepramukaan", name: "Indah Lestari" },
-    { position: "Seksi Upacara", name: "Joko Widodo" },
-    { position: "Seksi Keagamaan", name: "Kartika Sari" },
+    { position: "Seksi Keamanan", name: "Zada, Arfi, Lutfi" },
+    { position: "Seksi Kebersihan", name: "Cindy, Diva, Tegar" },
+    { position: "Seksi Kepramukaan", name: "Deni, Wahfi, Ilham" },
+    { position: "Seksi Upacara", name: "Reffa, Faril, Adit" },
+    { position: "Seksi Keagamaan", name: "Abil, Rio, Azzam" },
   ],
 };
 
 // Contoh data untuk jadwal (tetap sama)
 const picketSchedule = {
-  Senin: ["Ahmad Rifai", "Budi Santoso", "Citra Dewi"],
-  Selasa: ["Dian Permata", "Eko Prabowo", "Fitriani Nur"],
-  Rabu: ["Gita Putri", "Hadi Suryanto", "Indah Lestari"],
-  Kamis: ["Joko Widodo", "Kartika Sari", "Lukman Hakim"],
-  Jumat: ["Mega Pertiwi", "Nanda Kusuma", "Oka Prasetya"],
+  Senin: ["Shinta", "Faril", "Rio", "Wahyu"],
+  Selasa: ["Laila", "Abil", "Arfi", "Danang"],
+  Rabu: ["Kiky", "Lutfi", "Adit", "Reza"],
+  Kamis: ["Ailla", "Wahfi", "Deni", "Zada"],
+  Jumat: ["LIBUR"],
+  Sabtu: ["Calista", "Tegar", "Ilham", "Diva"],
+  Ahad: ["Cindy", "Reffa", "Azzam"],
 };
 
 const lessonSchedule = {
