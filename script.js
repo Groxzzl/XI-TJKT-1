@@ -282,21 +282,36 @@ function formatDate(dateString) {
 function renderStudentProfiles() {
   const studentList = document.getElementById("student-list");
   studentList.innerHTML = "";
+  
+  // Buat container row untuk grid Bootstrap
+  const row = document.createElement("div");
+  row.className = "row g-4"; // g-4 memberikan gap antar kolom
+  
   students.forEach((student) => {
     const isBirthday = checkBirthdayToday(student.birthDate);
+    
+    // Buat kolom dengan breakpoint Bootstrap:
+    // col-6 = 2 kolom di layar kecil (HP)
+    // col-md-4 = 3 kolom di layar sedang (tablet)
+    // col-lg-3 = 4 kolom di layar besar (desktop)
     const col = document.createElement("div");
-    col.className = "col-lg-3 col-md-4 col-sm-6";
+    col.className = "col-6 col-md-4 col-lg-3";
+    
+    // Buat card Bootstrap
     col.innerHTML = `
-            <div class="card h-100 shadow-sm student-card ${isBirthday ? "birthday-today" : ""}">
-                <img src="${student.photo}" class="card-img-top" alt="${student.name}">
-                <div class="card-body text-center">
-                    <h5 class="card-title">${student.name}</h5>
-                    <p class="card-text small text-muted">${formatDate(student.birthDate)}</p>
-                </div>
-            </div>
-        `;
-    studentList.appendChild(col);
+      <div class="card h-100 shadow-sm student-card ${isBirthday ? "birthday-today" : ""}">
+        <img src="${student.photo}" class="card-img-top" alt="${student.name}">
+        <div class="card-body text-center">
+          <h5 class="card-title">${student.name}</h5>
+          <p class="card-text small text-muted mb-0">${formatDate(student.birthDate)}</p>
+        </div>
+      </div>
+    `;
+    
+    row.appendChild(col);
   });
+  
+  studentList.appendChild(row);
 }
 
 function renderBirthdayStudents() {
@@ -328,11 +343,12 @@ function renderClassStructure() {
   container.innerHTML = ""; // Hapus konten sebelumnya
 
   // Bantuan untuk membuat kolom kartu
-  const createCardColumn = (position, name, colClasses, cardClasses = "") => {
+  const createCardColumn = (position, name, colClasses, cardClasses = "", icon = "") => {
     return `
             <div class="${colClasses}">
                 <div class="card h-100 shadow-sm text-center ${cardClasses}">
                     <div class="card-body d-flex flex-column justify-content-center p-3">
+                        ${icon ? `<div class="mb-2 icon-container">${icon}</div>` : ""}
                         <h5 class="card-title ${cardClasses.includes("bg-primary") ? "text-white" : "text-primary"} mb-1">${position}</h5>
                         <p class="card-text mt-1 mb-0">${name}</p>
                     </div>
@@ -341,48 +357,63 @@ function renderClassStructure() {
         `;
   };
 
-  // Top Role (Wali Kelas)
+  // Top Role (Wali Kelas) - Dengan ikon dan desain khusus
   let topRoleHtml = classStructure.topRoles
     .map((role) =>
       createCardColumn(
         role.position,
         role.name,
-        "col-md-8 col-lg-6",
-        "bg-primary text-white",
+        "col-md-8 col-lg-6 mx-auto mb-4", // Tambahkan margin bottom
+        "bg-primary text-white top-role-card",
+        '<i class="fas fa-chalkboard-teacher fa-2x"></i>'
       ),
     )
     .join("");
-  container.innerHTML += `<div class="row justify-content-center mb-4">${topRoleHtml}</div>`;
+  container.innerHTML += `<div class="row justify-content-center mb-5"><div class="col-12 text-center mb-4"><h3 class="section-subtitle">Kepemimpinan Kelas</h3></div>${topRoleHtml}</div>`;
 
-  // Main Officers (Ketua & Wakil)
+  // Main Officers (Ketua & Wakil) - Dengan ikon
   let mainOfficersHtml = classStructure.mainOfficers
-    .map((role) => createCardColumn(role.position, role.name, "col-md-5"))
+    .map((role) => 
+      createCardColumn(
+        role.position, 
+        role.name, 
+        "col-md-5 mx-auto officer-card mb-4", // Tambahkan margin bottom
+        "",
+        '<i class="fas fa-user-tie fa-2x"></i>'
+      ))
     .join("");
-  container.innerHTML += `<div class="row justify-content-center mb-5 g-4">${mainOfficersHtml}</div>`;
+  container.innerHTML += `<div class="row justify-content-center mb-5 g-4"><div class="col-12 text-center mb-4"><h3 class="section-subtitle">Pimpinan Utama</h3></div>${mainOfficersHtml}</div>`;
 
-  // Core Team (Secretaris & Bendahara)
-  container.innerHTML += '<hr class="my-4">';
+  // Core Team (Secretaris & Bendahara) - Dengan ikon
+  container.innerHTML += '<div class="row"><div class="col-12 text-center my-4"><h3 class="section-subtitle">Tim Inti</h3></div></div>';
   let coreTeamHtml = classStructure.coreTeam
     .map((role) =>
-      createCardColumn(role.position, role.name, "col-md-6 col-lg-3"),
+      createCardColumn(
+        role.position, 
+        role.name, 
+        "col-md-6 col-lg-3 mx-auto core-team-card mb-4", // Tambahkan margin bottom
+        "",
+        '<i class="fas fa-users fa-2x"></i>'
+      ),
     )
     .join("");
   container.innerHTML += `<div class="row justify-content-center g-4 mb-5">${coreTeamHtml}</div>`;
 
-  // Sections
+  // Sections - Dengan ikon
   container.innerHTML +=
-    '<h4 class="text-center text-muted mb-4">Seksi-Seksi</h4>';
+    '<div class="row"><div class="col-12 text-center my-4"><h3 class="section-subtitle">Seksi-Seksi</h3></div></div>';
   let sectionsHtml = classStructure.sections
     .map((role) =>
       createCardColumn(
         role.position,
         role.name,
-        "col-lg col-md-4 col-sm-6",
-        "", // Menghapus kelas 'bg-light'
+        "col-lg-4 col-md-6 col-sm-12 mb-4", // Tambahkan margin bottom
+        "",
+        '<i class="fas fa-tasks fa-2x"></i>'
       ),
     )
     .join("");
-  container.innerHTML += `<div class="row g-3">${sectionsHtml}</div>`;
+  container.innerHTML += `<div class="row g-4">${sectionsHtml}</div>`;
 }
 
 function renderPicketSchedule() {

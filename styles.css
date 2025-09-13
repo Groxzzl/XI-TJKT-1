@@ -16,6 +16,28 @@
   --border-radius: 12px;
 }
 
+/* Grid system tambahan untuk responsif */
+@media (min-width: 360px) {
+  .col-xxs-4 {
+    flex: 0 0 auto;
+    width: 33.333333%;
+  }
+}
+
+@media (min-width: 480px) {
+  .col-xs-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-sm-2 {
+    flex: 0 0 auto;
+    width: 16.666667%;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -188,9 +210,20 @@ section h2::after {
   overflow: hidden;
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  border-color: var(--primary-color);
+/* Efek pop up untuk desktop */
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+  }
+}
+
+/* Untuk mobile, efek tetap ada tapi tanpa hover */
+@media (hover: none) {
+  .card:active {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+  }
 }
 
 .card .card-title {
@@ -200,14 +233,132 @@ section h2::after {
   color: var(--text-color) !important;
 }
 
+/* Custom styles for class structure cards */
+.section-subtitle {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  font-weight: 600;
+}
+
+.section-subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  border-radius: 3px;
+}
+
+.icon-container {
+  color: var(--primary-color);
+}
+
+.top-role-card {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius); /* Pastikan border radius konsisten */
+}
+
+.top-role-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+  transform: rotate(30deg);
+}
+
+.top-role-card .card-title {
+  -webkit-text-fill-color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.top-role-card .card-text {
+  color: #ecf0f1 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.officer-card, .core-team-card, .section-card {
+  border-top: 3px solid var(--primary-color);
+  background-color: var(--card-bg);
+  transition: all 0.3s ease;
+  border-radius: var(--border-radius); /* Tambahkan border radius yang konsisten */
+  border: 1px solid var(--border-color); /* Tambahkan border yang konsisten */
+  margin-bottom: 1.5rem; /* Tambahkan spasi vertikal antar kartu */
+}
+
+/* Efek pop up untuk desktop */
+@media (hover: hover) {
+  .officer-card:hover, .core-team-card:hover, .section-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--secondary-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+}
+
+/* Untuk mobile, efek tetap ada tapi tanpa hover */
+@media (hover: none) {
+  .officer-card:active, .core-team-card:active, .section-card:active {
+    transform: translateY(-5px);
+    border-color: var(--secondary-color);
+  }
+}
+
+.icon-container {
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.card:hover .icon-container {
+  transform: scale(1.2);
+  color: var(--secondary-color);
+}
+
+.student-card.birthday-today {
+  box-shadow: 0 0 25px rgba(231, 76, 60, 0.7);
+  border: 2px solid #e74c3c;
+  border-radius: var(--border-radius); /* Pastikan border radius konsisten */
+}
+
+.student-card img {
+  height: 280px;
+  object-fit: cover;
+  border-top-left-radius: calc(var(--border-radius) - 1px); /* Sesuaikan dengan border card */
+  border-top-right-radius: calc(var(--border-radius) - 1px); /* Sesuaikan dengan border card */
+}
+
 .student-card.birthday-today {
   box-shadow: 0 0 25px rgba(231, 76, 60, 0.7);
   border: 2px solid #e74c3c;
 }
 
 .student-card img {
-  height: 280px;
+  width: 100%;
+  height: 200px;
   object-fit: cover;
+}
+
+/* Responsive adjustments for student profiles */
+@media (max-width: 576px) {
+  .student-card img {
+    height: 180px;
+  }
+  
+  .student-card .card-title {
+    font-size: 1rem;
+  }
+  
+  .student-card .card-text {
+    font-size: 0.8rem;
+  }
 }
 
 #structure .card-title {
@@ -228,6 +379,32 @@ section h2::after {
 
 #structure .bg-primary .card-text {
   color: #ecf0f1 !important;
+}
+
+/* Responsive adjustments for class structure */
+@media (max-width: 768px) {
+  .officer-card, .core-team-card, .section-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .section-subtitle::after {
+    width: 30px;
+  }
+  
+  /* Tambahkan spasi tambahan di mobile */
+  .row.g-4 {
+    row-gap: 1.5rem !important;
+  }
+}
+
+/* Pastikan semua card memiliki margin bottom konsisten */
+.card {
+  margin-bottom: 1.5rem;
+}
+
+/* Hapus margin bottom dari card terakhir dalam container */
+.card:last-child {
+  margin-bottom: 0;
 }
 
 /* --- SCHEDULE TABS --- */
