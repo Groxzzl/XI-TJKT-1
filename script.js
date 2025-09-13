@@ -1,3 +1,13 @@
+// --- NAVBAR SCROLL EFFECT ---
+document.addEventListener("scroll", () => {
+  const nav = document.getElementById("main-nav");
+  if (window.scrollY > 50) {
+    nav.classList.add("scrolled");
+  } else {
+    nav.classList.remove("scrolled");
+  }
+});
+
 // Contoh data untuk siswa (tetap sama)
 const students = [
   {
@@ -366,7 +376,7 @@ function renderClassStructure() {
         role.position,
         role.name,
         "col-lg col-md-4 col-sm-6",
-        "bg-light",
+        "", // Menghapus kelas 'bg-light'
       ),
     )
     .join("");
@@ -454,6 +464,80 @@ function renderGallery() {
 // --- INITIALIZATION ---
 
 document.addEventListener("DOMContentLoaded", function () {
+  // tsParticles Initialization
+  tsParticles.load("particles-js", {
+    fullScreen: { enable: false }, // Tambahkan ini untuk memastikan bahwa partikel tidak merender dalam mode fullscreen
+    particles: {
+      number: {
+        value: 80,
+        density: {
+          enable: true,
+          value_area: 800,
+        },
+      },
+      color: {
+        value: "#ffffff",
+      },
+      shape: {
+        type: "circle",
+      },
+      opacity: {
+        value: 0.5,
+        random: false,
+        anim: {
+          enable: false,
+        },
+      },
+      size: {
+        value: 3,
+        random: true,
+        anim: {
+          enable: false,
+        },
+      },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#ffffff",
+        opacity: 0.4,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: "none",
+        random: false,
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+      },
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: {
+          enable: true,
+          mode: "repulse",
+        },
+        onclick: {
+          enable: true,
+          mode: "push",
+        },
+        resize: true,
+      },
+      modes: {
+        repulse: {
+          distance: 100,
+          duration: 0.4,
+        },
+        push: {
+          particles_nb: 4,
+        },
+      },
+    },
+    retina_detect: true,
+  });
+
   renderStudentProfiles();
   renderBirthdayStudents();
   renderClassStructure();

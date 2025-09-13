@@ -1,107 +1,291 @@
-/* Font Google */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
+/* --- GENERAL & UTILITIES --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 :root {
-    --bs-primary-rgb: 0, 123, 255; /* Warna utama Bootstrap kustom */
-    --bs-body-font-family: 'Roboto', sans-serif;
-    --bs-body-line-height: 1.7;
+  --primary-color: #9b59b6;
+  --secondary-color: #3498db;
+  --body-bg: #000000; /* Ubah ke hitam solid */
+  --card-bg: #1e1e1e;
+  --text-color: #aaaaaa;
+  --heading-color: #ffffff;
+  --border-color: #333333;
+  --dark-text-color: #2c3e50;
+  
+  --heading-font: 'Poppins', sans-serif;
+  --body-font: 'Poppins', sans-serif;
+  --border-radius: 12px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    padding-top: 70px; /* Ofset untuk navbar tetap */
+  font-family: var(--body-font);
+  background-color: var(--body-bg); /* Ini akan menjadi hitam */
+  color: var(--text-color);
+  line-height: 1.7;
+  padding-top: 80px;
 }
 
-h1, h2, h3, h4, h5, h6, .navbar-brand, .nav-link {
-    font-family: 'Poppins', sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  color: var(--heading-color);
 }
 
-.navbar-brand h1 {
-    font-weight: 700;
+section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--border-color);
+  background-color: #000000; /* Ubah latar belakang semua section menjadi hitam */
 }
 
-/* Bagian Hero */
+.text-muted {
+  color: #888888 !important;
+}
+
+/* --- NAVIGATION BAR --- */
+.navbar {
+  padding: 1.5rem 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-brand h1, .navbar-brand p {
+  color: var(--heading-color);
+  transition: color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  padding: 1rem 0;
+  backdrop-filter: blur(10px);
+}
+
+.navbar.scrolled .navbar-brand h1, .navbar.scrolled .navbar-brand p {
+  color: var(--dark-text-color);
+}
+
+.navbar-toggler {
+  border: none;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(241, 245, 249, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.navbar.scrolled .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(44, 62, 80, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--heading-color);
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled .nav-link {
+  color: var(--dark-text-color);
+}
+
+.nav-link:hover, .nav-link.active {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+/* --- HERO SECTION --- */
 .hero {
-    min-height: 80vh;
-    background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(111, 66, 193, 0.8)), url('https://source.unsplash.com/1600x900/?school,technology') no-repeat center center;
-    background-size: cover;
+  position: relative;
+  min-height: 100vh;
+  /* Hapus background: var(--body-bg); karena akan diganti dengan partikel */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Tambahkan ini untuk mencegah overflow */
+  border-bottom: 1px solid var(--border-color);
+  /* Tambahkan background hitam solid untuk bagian hero */
+  background-color: #000000;
+  /* Tambahkan z-index untuk memastikan hero berada di atas elemen lain jika diperlukan */
+  z-index: 1;
+  /* Tambahkan contain: strict untuk memastikan bahwa elemen ini dan isinya tidak mempengaruhi layout di luar batasnya */
+  contain: strict;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  /* Tambahkan overflow: hidden untuk memastikan partikel tidak meluap */
+  overflow: hidden;
+  /* Tambahkan position: relative untuk memastikan partikel hanya berada dalam batas elemen ini */
+  /* Note: position: absolute sudah diterapkan, jadi ini mungkin tidak diperlukan */
+  /* Tambahkan contain: strict untuk memastikan bahwa elemen ini dan isinya tidak mempengaruhi layout di luar batasnya */
+  contain: strict;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero .display-4 {
+  font-weight: 700;
 }
 
 .birthday-highlight {
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(5px);
-    max-width: 600px;
+  background-color: rgba(44, 44, 44, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  max-width: 650px;
 }
 
-.birthday-card {
-    transition: transform 0.3s ease;
+.birthday-card img {
+  border: 3px solid white;
+  transition: transform 0.3s ease;
 }
 
-.birthday-card:hover {
-    transform: translateY(-5px);
+.birthday-card:hover img {
+  transform: scale(1.1);
 }
 
-/* Judul Bagian */
+/* --- SECTION TITLES --- */
 section h2 {
-    font-weight: 700;
-    position: relative;
-    padding-bottom: 1rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 section h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background-color: var(--bs-primary);
-    border-radius: 2px;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  border-radius: 3px;
 }
 
-/* Gaya Kartu */
+/* --- CARD STYLES --- */
 .card {
-    border: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: none;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+  transform: translateY(-10px);
+  border-color: var(--primary-color);
+}
+
+.card .card-title {
+  color: var(--heading-color) !important;
+}
+.card .card-text {
+  color: var(--text-color) !important;
 }
 
 .student-card.birthday-today {
-    border: 3px solid #e74c3c;
-    box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+  box-shadow: 0 0 25px rgba(231, 76, 60, 0.7);
+  border: 2px solid #e74c3c;
 }
 
 .student-card img {
-    height: 250px;
-    object-fit: cover;
+  height: 280px;
+  object-fit: cover;
 }
 
-/* Tab Jadwal */
+#structure .card-title {
+  background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+#structure .bg-primary {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)) !important;
+  border: none;
+}
+
+#structure .bg-primary .card-title {
+  -webkit-text-fill-color: white;
+}
+
+#structure .bg-primary .card-text {
+  color: #ecf0f1 !important;
+}
+
+/* --- SCHEDULE TABS --- */
 .nav-pills .nav-link {
-    font-weight: 600;
+  font-weight: 600;
+  color: var(--text-color);
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  margin: 0 5px;
+  cursor: pointer; /* Ensure it looks clickable */
+}
+
+.nav-pills .nav-link.active {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: white !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border: 1px solid transparent;
 }
 
 .day-schedule {
-    background-color: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    margin-bottom: 1.5rem;
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
 }
 
-/* Galeri */
+.day-schedule h5 {
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.table {
+  --bs-table-color: var(--text-color);
+  --bs-table-striped-color: var(--heading-color);
+  --bs-table-striped-bg: #2c2c2c;
+  --bs-table-bg: transparent;
+  --bs-table-border-color: var(--border-color);
+}
+
+/* --- GALLERY --- */
 .gallery-item {
-    overflow: hidden;
-    border-radius: 0.5rem;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
 }
 
 .gallery-item img {
-    transition: transform 0.4s ease;
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
 .gallery-item:hover img {
-    transform: scale(1.1);
+  transform: scale(1.1);
+  filter: brightness(0.8);
+}
+
+/* --- FOOTER --- */
+footer {
+  background-color: #000000; /* Pastikan latar belakang footer hitam */
+  border-top: 1px solid var(--border-color);
 }
