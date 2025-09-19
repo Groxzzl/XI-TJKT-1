@@ -8,147 +8,45 @@ document.addEventListener("scroll", () => {
   }
 });
 
-// Contoh data untuk siswa (tetap sama)
+// Data siswa dengan penambahan 'key' untuk mencocokkan dengan backend
 const students = [
-  {
-    id: 1,
-    name: "Reza",
-    birthDate: "2007-09-13",
-    photo: "https://groxzzl.github.io/pagesft/arya/arya3.webp",
-  },
-  {
-    id: 2,
-    name: "Danang",
-    birthDate: "2007-09-13",
-    photo: "https://groxzzl.github.io/pagesft/lukman/lukman1.webp",
-  },
-  {
-    id: 3,
-    name: "Rio",
-    birthDate: "2007-01-10",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 4,
-    name: "Arfian",
-    birthDate: "2007-12-03",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 5,
-    name: "Azzamul Mukhtar",
-    birthDate: "2007-03-28",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 6,
-    name: "Fitriani Nur",
-    birthDate: "2007-07-19",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 7,
-    name: "Gita Putri",
-    birthDate: "2007-11-11",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 8,
-    name: "Hadi Suryanto",
-    birthDate: "2007-04-05",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 9,
-    name: "Indah Lestari",
-    birthDate: "2007-09-30",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 10,
-    name: "Joko Widodo",
-    birthDate: "2007-02-14",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 11,
-    name: "Kartika Sari",
-    birthDate: "2007-06-25",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 12,
-    name: "Lukman Hakim",
-    birthDate: "2007-10-17",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 13,
-    name: "Mega Pertiwi",
-    birthDate: "2007-12-08",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 14,
-    name: "Nanda Kusuma",
-    birthDate: "2007-01-29",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 15,
-    name: "Oka Prasetya",
-    birthDate: "2007-05-07",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 16,
-    name: "Putri Ayu",
-    birthDate: "2007-08-12",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 17,
-    name: "Rizky Firmansyah",
-    birthDate: "2007-03-03",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 18,
-    name: "Santi Wulandari",
-    birthDate: "2007-07-24",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 19,
-    name: "Taufik Hidayat",
-    birthDate: "2007-11-09",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 20,
-    name: "Umi Kalsum",
-    birthDate: "2007-04-16",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 21,
-    name: "Vina Anggraini",
-    birthDate: "2007-09-21",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 22,
-    name: "Wawan Setiawan",
-    birthDate: "2007-02-27",
-    photo: "https://via.placeholder.com/150",
-  },
-  {
-    id: 23,
-    name: "Yuni Pratiwi",
-    birthDate: "2007-06-13",
-    photo: "https://via.placeholder.com/150",
-  },
+    { id: 1, name: "Danang", key: "danang", birthDate: "2007-09-13", photo: "https://groxzzl.github.io/pagesft/lukman/lukman1.webp" },
+    { id: 2, name: "Abdul", key: "abdul", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 3, name: "Daffa", key: "daffa", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 4, name: "Rafly", key: "rafly", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 5, name: "Farrel", key: "farrel", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 6, name: "Ryan", key: "ryan", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 7, name: "Bagas", key: "bagas", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 8, name: "Wahyu", key: "wahyu", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 9, name: "Hafidz", key: "hafidz", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 10, name: "Fathur", key: "fathur", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 11, name: "Fadhil", key: "fadhil", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 12, name: "Fatih", key: "fatih", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 13, name: "Faras", key: "faras", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 14, name: "Fakhri", key: "fakhri", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 15, name: "Fauzan", key: "fauzan", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 16, name: "Fannan", key: "fannan", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 17, name: "Firdaus", key: "firdaus", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 18, name: "Irfan", key: "irfan", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 19, name: "Ilham", key: "ilham", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 20, name: "Daffa Rafi", key: "daffarafi", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 21, name: "Rafi", key: "rafi", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 22, name: "Rizky", key: "rizky", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 23, name: "Raihan", key: "raihan", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 24, name: "Syahran", key: "syahran", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 25, name: "Zaki", key: "zaki", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 26, name: "Zhafran", key: "zhafran", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 27, name: "Maulana", key: "maulana", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 28, name: "M Hafidz", key: "mhafidz", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 29, name: "M Rizky", key: "mrizky", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 30, name: "Nabil", key: "nabil", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 31, name: "Najwan", key: "najwan", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 32, name: "Naufal", key: "naufal", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 33, name: "Neza", key: "neza", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 34, name: "Oscar", key: "oscar", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
+    { id: 35, name: "Putra", key: "putra", birthDate: "2007-01-01", photo: "https://via.placeholder.com/200" },
 ];
+
 
 // Contoh data untuk struktur kelas (Hierarkis)
 const classStructure = {
@@ -229,40 +127,6 @@ const lessonSchedule = {
   ],
 };
 
-// Contoh data untuk galeri (tetap sama)
-const galleryPhotos = [
-  {
-    id: 1,
-    url: "https://i.pinimg.com/1200x/bd/56/43/bd5643293c6ae35b8b68d1abe48b8e44.jpg",
-    caption: "Kegiatan 1",
-  },
-  {
-    id: 2,
-    url: "https://i.pinimg.com/736x/40/76/37/40763772b6d0f93bb0dce6d546d8c458.jpg",
-    caption: "Kegiatan 2",
-  },
-  {
-    id: 3,
-    url: "https://via.placeholder.com/300x200?text=Kegiatan+3",
-    caption: "Kegiatan 3",
-  },
-  {
-    id: 4,
-    url: "https://via.placeholder.com/300x200?text=Kegiatan+4",
-    caption: "Kegiatan 4",
-  },
-  {
-    id: 5,
-    url: "https://via.placeholder.com/300x200?text=Kegiatan+5",
-    caption: "Kegiatan 5",
-  },
-  {
-    id: 6,
-    url: "https://via.placeholder.com/300x200?text=Kegiatan+6",
-    caption: "Kegiatan 6",
-  },
-];
-
 // Fungsi bantuan
 function checkBirthdayToday(birthDate) {
   const today = new Date();
@@ -283,23 +147,17 @@ function renderStudentProfiles() {
   const studentList = document.getElementById("student-list");
   studentList.innerHTML = "";
   
-  // Buat container row untuk grid Bootstrap
   const row = document.createElement("div");
-  row.className = "row g-4"; // g-4 memberikan gap antar kolom
+  row.className = "row g-4";
   
   students.forEach((student) => {
     const isBirthday = checkBirthdayToday(student.birthDate);
-    
-    // Buat kolom dengan breakpoint Bootstrap:
-    // col-6 = 2 kolom di layar kecil (HP)
-    // col-md-4 = 3 kolom di layar sedang (tablet)
-    // col-lg-3 = 4 kolom di layar besar (desktop)
     const col = document.createElement("div");
     col.className = "col-6 col-md-4 col-lg-3";
     
-    // Buat card Bootstrap
+    // Menambahkan data-student-id pada card utama
     col.innerHTML = `
-      <div class="card h-100 shadow-sm student-card ${isBirthday ? "birthday-today" : ""}">
+      <div class="card h-100 shadow-sm student-card ${isBirthday ? "birthday-today" : ""}" data-student-id="${student.key}">
         <img src="${student.photo}" class="card-img-top" alt="${student.name}">
         <div class="card-body text-center">
           <h5 class="card-title">${student.name}</h5>
@@ -340,9 +198,8 @@ function renderBirthdayStudents() {
 
 function renderClassStructure() {
   const container = document.getElementById("structure-container");
-  container.innerHTML = ""; // Hapus konten sebelumnya
+  container.innerHTML = "";
 
-  // Bantuan untuk membuat kolom kartu
   const createCardColumn = (position, name, colClasses, cardClasses = "", icon = "") => {
     return `
             <div class="${colClasses}">
@@ -357,62 +214,18 @@ function renderClassStructure() {
         `;
   };
 
-  // Top Role (Wali Kelas) - Dengan ikon dan desain khusus
-  let topRoleHtml = classStructure.topRoles
-    .map((role) =>
-      createCardColumn(
-        role.position,
-        role.name,
-        "col-md-8 col-lg-6 mx-auto mb-4", // Tambahkan margin bottom
-        "bg-primary text-white top-role-card",
-        '<i class="fas fa-chalkboard-teacher fa-2x"></i>'
-      ),
-    )
-    .join("");
+  let topRoleHtml = classStructure.topRoles.map((role) => createCardColumn(role.position, role.name, "col-md-8 col-lg-6 mx-auto mb-4", "bg-primary text-white top-role-card", '<i class="fas fa-chalkboard-teacher fa-2x"></i>')).join("");
   container.innerHTML += `<div class="row justify-content-center mb-5"><div class="col-12 text-center mb-4"><h3 class="section-subtitle">Kepemimpinan Kelas</h3></div>${topRoleHtml}</div>`;
 
-  // Main Officers (Ketua & Wakil) - Dengan ikon
-  let mainOfficersHtml = classStructure.mainOfficers
-    .map((role) => 
-      createCardColumn(
-        role.position, 
-        role.name, 
-        "col-md-5 mx-auto officer-card mb-4", // Tambahkan margin bottom
-        "",
-        '<i class="fas fa-user-tie fa-2x"></i>'
-      ))
-    .join("");
+  let mainOfficersHtml = classStructure.mainOfficers.map((role) => createCardColumn(role.position, role.name, "col-md-5 mx-auto officer-card mb-4", "", '<i class="fas fa-user-tie fa-2x"></i>')).join("");
   container.innerHTML += `<div class="row justify-content-center mb-5 g-4"><div class="col-12 text-center mb-4"><h3 class="section-subtitle">Pimpinan Utama</h3></div>${mainOfficersHtml}</div>`;
 
-  // Core Team (Secretaris & Bendahara) - Dengan ikon
   container.innerHTML += '<div class="row"><div class="col-12 text-center my-4"><h3 class="section-subtitle">Tim Inti</h3></div></div>';
-  let coreTeamHtml = classStructure.coreTeam
-    .map((role) =>
-      createCardColumn(
-        role.position, 
-        role.name, 
-        "col-md-6 col-lg-3 mx-auto core-team-card mb-4", // Tambahkan margin bottom
-        "",
-        '<i class="fas fa-users fa-2x"></i>'
-      ),
-    )
-    .join("");
+  let coreTeamHtml = classStructure.coreTeam.map((role) => createCardColumn(role.position, role.name, "col-md-6 col-lg-3 mx-auto core-team-card mb-4", "", '<i class="fas fa-users fa-2x"></i>')).join("");
   container.innerHTML += `<div class="row justify-content-center g-4 mb-5">${coreTeamHtml}</div>`;
 
-  // Sections - Dengan ikon
-  container.innerHTML +=
-    '<div class="row"><div class="col-12 text-center my-4"><h3 class="section-subtitle">Seksi-Seksi</h3></div></div>';
-  let sectionsHtml = classStructure.sections
-    .map((role) =>
-      createCardColumn(
-        role.position,
-        role.name,
-        "col-lg-4 col-md-6 col-sm-12 mb-4", // Tambahkan margin bottom
-        "",
-        '<i class="fas fa-tasks fa-2x"></i>'
-      ),
-    )
-    .join("");
+  container.innerHTML += '<div class="row"><div class="col-12 text-center my-4"><h3 class="section-subtitle">Seksi-Seksi</h3></div></div>';
+  let sectionsHtml = classStructure.sections.map((role) => createCardColumn(role.position, role.name, "col-lg-4 col-md-6 col-sm-12 mb-4", "", '<i class="fas fa-tasks fa-2x"></i>')).join("");
   container.innerHTML += `<div class="row g-4">${sectionsHtml}</div>`;
 }
 
@@ -427,12 +240,7 @@ function renderPicketSchedule() {
     col.className = "col-md-6 col-lg-4";
     let listItems = studentList.map((name) => `<li>${name}</li>`).join("");
 
-    col.innerHTML = `
-            <div class="day-schedule h-100">
-                <h5 class="text-primary">${day}</h5>
-                <ul class="list-unstyled mb-0">${listItems}</ul>
-            </div>
-        `;
+    col.innerHTML = `<div class="day-schedule h-100"><h5 class="text-primary">${day}</h5><ul class="list-unstyled mb-0">${listItems}</ul></div>`;
     row.appendChild(col);
   }
   container.appendChild(row);
@@ -448,125 +256,34 @@ function renderLessonSchedule() {
     const col = document.createElement("div");
     col.className = "col-12";
 
-    let tableRows = lessons
-      .map(
-        (lesson) => `
-            <tr>
-                <td class="text-muted">${lesson.time}</td>
-                <td>${lesson.subject}</td>
-            </tr>
-        `,
-      )
-      .join("");
-
+    let tableRows = lessons.map((lesson) => `<tr><td class="text-muted">${lesson.time}</td><td>${lesson.subject}</td></tr>`).join("");
     if (lessons.length === 0) {
-      tableRows =
-        '<tr><td colspan="2" class="text-center text-muted">Hari libur</td></tr>';
+      tableRows = '<tr><td colspan="2" class="text-center text-muted">Hari libur</td></tr>';
     }
 
-    col.innerHTML = `
-            <div class="day-schedule">
-                <h5 class="text-primary">${day}</h5>
-                <div class="table-responsive">
-                    <table class="table table-striped mb-0">
-                        <tbody>${tableRows}</tbody>
-                    </table>
-                </div>
-            </div>
-        `;
+    col.innerHTML = `<div class="day-schedule"><h5 class="text-primary">${day}</h5><div class="table-responsive"><table class="table table-striped mb-0"><tbody>${tableRows}</tbody></table></div></div>`;
     row.appendChild(col);
   }
   container.appendChild(row);
 }
 
-function renderGallery() {
-  const container = document.getElementById("photo-gallery");
-  container.innerHTML = "";
-  galleryPhotos.forEach((photo) => {
-    const col = document.createElement("div");
-    col.className = "col-lg-4 col-md-6";
-    col.innerHTML = `
-            <div class="card gallery-item shadow-sm">
-                <img src="${photo.url}" class="img-fluid" alt="${photo.caption}">
-            </div>
-        `;
-    container.appendChild(col);
-  });
-}
-
 // --- INITIALIZATION ---
-
 document.addEventListener("DOMContentLoaded", function () {
-  // tsParticles Initialization
   tsParticles.load("particles-js", {
-    fullScreen: { enable: false }, // Tambahkan ini untuk memastikan bahwa partikel tidak merender dalam mode fullscreen
+    fullScreen: { enable: false },
     particles: {
-      number: {
-        value: 80,
-        density: {
-          enable: true,
-          value_area: 800,
-        },
-      },
-      color: {
-        value: "#ffffff",
-      },
-      shape: {
-        type: "circle",
-      },
-      opacity: {
-        value: 0.5,
-        random: false,
-        anim: {
-          enable: false,
-        },
-      },
-      size: {
-        value: 3,
-        random: true,
-        anim: {
-          enable: false,
-        },
-      },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: "#ffffff",
-        opacity: 0.4,
-        width: 1,
-      },
-      move: {
-        enable: true,
-        speed: 2,
-        direction: "none",
-        random: false,
-        straight: false,
-        out_mode: "out",
-        bounce: false,
-      },
+      number: { value: 80, density: { enable: true, value_area: 800 } },
+      color: { value: "#ffffff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5, random: false },
+      size: { value: 3, random: true },
+      line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+      move: { enable: true, speed: 2, direction: "none", out_mode: "out" },
     },
     interactivity: {
       detect_on: "canvas",
-      events: {
-        onhover: {
-          enable: true,
-          mode: "repulse",
-        },
-        onclick: {
-          enable: true,
-          mode: "push",
-        },
-        resize: true,
-      },
-      modes: {
-        repulse: {
-          distance: 100,
-          duration: 0.4,
-        },
-        push: {
-          particles_nb: 4,
-        },
-      },
+      events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+      modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } },
     },
     retina_detect: true,
   });
@@ -576,11 +293,101 @@ document.addEventListener("DOMContentLoaded", function () {
   renderClassStructure();
   renderPicketSchedule();
   renderLessonSchedule();
-  renderGallery();
+  
+  // Panggil fungsi baru untuk galeri dinamis
+  fetchGalleryData();
 
-  // Update birthday display every minute
   setInterval(() => {
     renderBirthdayStudents();
     renderStudentProfiles();
   }, 60000);
 });
+
+
+// --- FUNGSI BARU UNTUK GALERI DINAMIS & SLIDESHOW ---
+
+async function fetchGalleryData() {
+    try {
+        const response = await fetch('/api/data');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const data = await response.json();
+        
+        renderKegiatanGallery(data.gallery_kegiatan || []);
+        renderSiswaSlideshows(data);
+
+    } catch (error) {
+        console.error("Gagal mengambil data galeri:", error);
+    }
+}
+
+function renderKegiatanGallery(urls) {
+    const galleryContainer = document.getElementById('photo-gallery'); // Targetkan container galeri yang sudah ada
+    if (!galleryContainer) {
+        console.error("Elemen #photo-gallery tidak ditemukan.");
+        return;
+    }
+    
+    galleryContainer.innerHTML = ''; // Kosongkan galeri
+    if (urls.length === 0) {
+        galleryContainer.innerHTML = '<p class="text-center col-12">Belum ada foto kegiatan.</p>';
+        return;
+    }
+
+    urls.forEach(url => {
+        const col = document.createElement("div");
+        col.className = "col-lg-4 col-md-6 mb-4";
+        col.innerHTML = `
+            <div class="gallery-item" style="border-radius: 12px; overflow: hidden; border: 1px solid #333;">
+                <a href="${url}" data-fancybox="gallery">
+                    <img src="${url}" class="img-fluid" alt="Foto Kegiatan" style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.3s ease;">
+                </a>
+            </div>
+        `;
+        galleryContainer.appendChild(col);
+    });
+}
+
+function renderSiswaSlideshows(data) {
+    const studentCards = document.querySelectorAll('.student-card');
+    studentCards.forEach(card => {
+        const studentId = card.dataset.studentId;
+        if (!studentId) return;
+
+        const studentKey = `siswa_${studentId}`;
+        const urls = data[studentKey];
+
+        const imgElement = card.querySelector('img');
+        if (!imgElement) return;
+
+        if (urls && urls.length > 1) {
+            const container = document.createElement('div');
+            container.className = 'slideshow-container';
+            
+            urls.forEach((url, index) => {
+                const newImg = document.createElement('img');
+                newImg.src = url;
+                newImg.alt = `Foto ${studentId}`;
+                if (index === 0) newImg.classList.add('active');
+                container.appendChild(newImg);
+            });
+
+            imgElement.replaceWith(container);
+            startSlideshow(container);
+
+        } else if (urls && urls.length === 1) {
+            imgElement.src = urls[0];
+        }
+    });
+}
+
+function startSlideshow(slideshowContainer) {
+    let currentIndex = 0;
+    const images = slideshowContainer.querySelectorAll('img');
+    if (images.length <= 1) return;
+
+    setInterval(() => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+    }, 3000);
+}

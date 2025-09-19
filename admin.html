@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; color: #333; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        form { margin-bottom: 30px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
+        input[type="file"], select { width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; }
+        button { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+        #message { margin-top: 20px; padding: 10px; border-radius: 4px; display: none; }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <div class="container" id="admin-content" style="display: none;">
+        <h2>Admin Panel Galeri</h2>
+
+        <!-- Form untuk Galeri Kegiatan -->
+        <form id="kegiatan-form">
+            <h3>Upload Foto Kegiatan</h3>
+            <label for="kegiatan-file">Pilih Foto:</label>
+            <input type="file" id="kegiatan-file" name="file" accept="image/*" required>
+            <button type="submit">Upload ke Kegiatan</button>
+        </form>
+
+        <!-- Form untuk Foto Siswa -->
+        <form id="siswa-form">
+            <h3>Upload Foto Siswa</h3>
+            <label for="siswa-select">Pilih Siswa:</label>
+            <select id="siswa-select" name="student" required>
+                <option value="danang">Danang</option>
+                <option value="abdul">Abdul</option>
+                <option value="daffa">Daffa</option>
+                <option value="rafly">Rafly</option>
+                <option value="farrel">Farrel</option>
+                <option value="ryan">Ryan</option>
+                <option value="bagas">Bagas</option>
+                <option value="wahyu">Wahyu</option>
+                <option value="hafidz">Hafidz</option>
+                <option value="fathur">Fathur</option>
+                <option value="fadhil">Fadhil</option>
+                <option value="fatih">Fatih</option>
+                <option value="faras">Faras</option>
+                <option value="fakhri">Fakhri</option>
+                <option value="fauzan">Fauzan</option>
+                <option value="fannan">Fannan</option>
+                <option value="firdaus">Firdaus</option>
+                <option value="irfan">Irfan</option>
+                <option value="ilham">Ilham</option>
+                <option value="daffarafi">Daffa Rafi</option>
+                <option value="rafi">Rafi</option>
+                <option value="rizky">Rizky</option>
+                <option value="raihan">Raihan</option>
+                <option value="syahran">Syahran</option>
+                <option value="zaki">Zaki</option>
+                <option value="zhafran">Zhafran</option>
+                <option value="maulana">Maulana</option>
+                <option value="mhafidz">M Hafidz</option>
+                <option value="mrizky">M Rizky</option>
+                <option value="nabil">Nabil</option>
+                <option value="najwan">Najwan</option>
+                <option value="naufal">Naufal</option>
+                <option value="neza">Neza</option>
+                <option value="oscar">Oscar</option>
+                <option value="putra">Putra</option>
+            </select>
+            <label for="siswa-file">Pilih Foto:</label>
+            <input type="file" id="siswa-file" name="file" accept="image/*" required>
+            <button type="submit">Upload untuk Siswa</button>
+        </form>
+
+        <div id="message"></div>
+    </div>
+
+    <script>
+        // Simple password protection
+        const password = "admin"; // Ganti password ini nanti
+        const storedPassword = sessionStorage.getItem("admin-password");
+
+        function showAdminContent() {
+            document.getElementById("admin-content").style.display = "block";
+        }
+
+        if (storedPassword === password) {
+            showAdminContent();
+        } else {
+            const enteredPassword = prompt("Masukkan password admin:");
+            if (enteredPassword === password) {
+                sessionStorage.setItem("admin-password", enteredPassword);
+                showAdminContent();
+            } else {
+                alert("Password salah!");
+                document.body.innerHTML = "<h1>Akses Ditolak</h1>";
+            }
+        }
+
+        const messageDiv = document.getElementById('message');
+
+        const handleFormSubmit = async (event, keyPrefix) => {
+            event.preventDefault();
+            const form = event.target;
+            const fileInput = form.querySelector('input[type="file"]');
+            const file = fileInput.files[0];
+            
+            let key;
+            if (keyPrefix === 'siswa') {
+                const studentName = form.querySelector('select').value;
+                key = `siswa_${studentName}`;
+            } else {
+                key = 'gallery_kegiatan';
+            }
+
+            if (!file) {
+                alert("Pilih file terlebih dahulu!");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            messageDiv.style.display = 'block';
+            messageDiv.className = '';
+            messageDiv.textContent = 'Mengunggah...';
+
+            try {
+                const response = await fetch(`/api/upload?key=${key}`, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    messageDiv.className = 'success';
+                    messageDiv.textContent = `Sukses! Foto telah diunggah. URL: ${result.url}`;
+                    form.reset();
+                } else {
+                    throw new Error(result.error || 'Gagal mengunggah file.');
+                }
+            } catch (error) {
+                messageDiv.className = 'error';
+                messageDiv.textContent = 'Error: ' + error.message;
+            }
+        };
+
+        document.getElementById('kegiatan-form').addEventListener('submit', (e) => handleFormSubmit(e, 'gallery'));
+        document.getElementById('siswa-form').addEventListener('submit', (e) => handleFormSubmit(e, 'siswa'));
+    </script>
+</body>
+</html>
